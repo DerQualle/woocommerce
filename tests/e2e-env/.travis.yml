@@ -42,10 +42,11 @@ before_script:
           composer install
         fi
 
-jobs:
-    fast_finish: true
-    include:
-        - name: E2E Tests
+matrix:
+  fast_finish: true
+  include:
+    - name: E2E Tests
+    php: 7.4
     script:
         - composer require wp-cli/i18n-command
         - npm run build
